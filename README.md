@@ -1,7 +1,7 @@
 # Music-Display-Stick-Node
 Sample WiFi Display System for Straight Line of Lights
 
-This is the code code for my WiFi Music Visualizer System. It is being supplied as a sample from which others can create their own display nodes.
+This is the code for the receiving end of my WiFi Music Visualizer System. It is being supplied as a sample from which others can create their own display nodes.
 
 It is ESP32 based and uses the [ESP-NOW Protocol](https://www.espressif.com/en/products/software/esp-now/overview) and [FastLED LED Library](https://www.fastled.io). The function of this node is to receive ESP-NOW WiFi packets and display the music information it contains.
 
@@ -15,16 +15,17 @@ It is ESP32 based and uses the [ESP-NOW Protocol](https://www.espressif.com/en/p
      - Your node should only respond to version 1 packets
    - Pattern Numbers (0 - 255 sent by TX)
      - 0 - All lights off, packet dump on local Serial Monitor
-     - 1 - 255 Your pattern choices can be whatever you want them to be.
+     - 1 - 254 Your pattern choices can be whatever you want them to be.
        - Depending on your hardware, pattern selection may not apply
-       - 255 - Best Show
-         - If you have multiple patterns, this is the one you want to show off
+     - 255 - Best of Show
+           - If you have multiple patterns, this is the one you want to show off in the final competition
      - Any values outside this range (errors) or unhandled should set the display to black.
-     - Startup pattern is 1
    - Brightness (0 - 255 sent by TX)
      - LED brightness MUST respond to all levels
      - Your power supply must be able to support full brightness
      - Startup brightness is 64
+   - Soft pot
+     - The soft pot is a value that can be adjusted from 0 to 255 at the Head node. It is provided to assist with developement but cannot be used as part of your show demonstration.
    - Audio Data (0-100 sent by TX)
      - 7 Audio Channels
      - 1 Average Channel
@@ -44,7 +45,7 @@ The software for the system is written in C and has been developed in the Arduin
 
 This sample code is part of the file Music_Stick_Node_ESPNOW.h
 ```
-const int   MY_PACKET_VERSION   = 1;    //only processes version 1 packets
+const int   MY_PACKET_VERSION   = 2;    //only processes version 2 packets
 
 //this must be volatile, as it is changed during an interrupt
 volatile boolean newData=false;
@@ -56,6 +57,7 @@ struct struct_message
     byte  packetVersion;
     byte  pattern;
     byte  brightness;
+    byte  softpot;
     byte  monoAverage;
     byte  channelData[7];
     } myData;
@@ -152,12 +154,13 @@ void loop()
         //this includes pattern 0.
         switch (myData.pattern)
             {
-            case 0:
+            case 0: //required
                 fill_solid(Stick, LEDS_ON_STICK, CRGB::Black);
                 FastLED.show();
                 Serial.print(F("packetVersion: "));    Serial.println(myData.packetVersion);
                 Serial.print(F("pattern: "));          Serial.println(myData.pattern);
                 Serial.print(F("brightness: "));       Serial.println(myData.brightness);
+                Serial.print(F("softpot: "));          Serial.println(myData.softpot);
                 Serial.print(F("monoAverage: "));      Serial.println(myData.monoAverage);
                 Serial.print(F("channelData: "));      for(int i=0; i<7; i++) Serial.printf("%hu ", myData.channelData[i]);
                 Serial.println();
@@ -166,11 +169,11 @@ void loop()
 	    //other pattern cases to go here
 
             //Best in show
-            case 255:
+            case 255: //required
                 VULoopPH(bluePalette, 0);//Blue, Peak Hold, Average
                 break;
 
-            default:
+            default: //required
                 fill_solid(Stick, LEDS_ON_STICK, CRGB::Black);
                 FastLED.show();
                 break;
