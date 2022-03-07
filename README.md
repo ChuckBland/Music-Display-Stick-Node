@@ -181,3 +181,38 @@ void loop()
         }
     }
 ```
+## Helpful Resources
+
+I HIGHLY Recommend you watch this video to learn the difference between LED Strips. There are many different types and each has their strengths and weaknesses. So watch this video first!
+
+[* LED Strips, what's the difference?](https://www.youtube.com/watch?v=QnvircC22hU)
+
+You might want help configuring the Arduino IDE to support the ESP32. Check out this tutorial page from Random Nerd Tutorials.
+
+[* Setting-up Arduino IDE for ESP32](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)
+
+Once youj've installed ESP32 support in the Arduino IDE, the ESP-NOW and WIFi libraries will be automatically available. Here are some links to helpful technical detail.
+
+[* Technical Overview of ESP-NOW](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_now.html#esp-now)
+
+[* Getting Started with ESP-NOW](https://randomnerdtutorials.com/esp-now-esp32-arduino-ide/)
+
+The FastLED library will be a big help to you. Bookmark this site.
+
+[* FastLED Library Home](https://fastled.io/)
+
+Scott Marley has an EXCELLENT YouTube channel filled with tutorials on the FastLED library and some very cool projects. You should take the time to watch these vids from the series, FastLED Basics". Each are shorter than twnety minutes in length.
+
+[* FastLED Basics Part 1](https://www.youtube.com/watch?v=4Ut4UK7612M&t=80s)
+
+[* FastLED Basics Part 2](https://www.youtube.com/watch?v=FQpXStjJ4Vc&t=883s)
+
+[* FastLED Basics Part 3](https://www.youtube.com/watch?v=Ukq0tH2Tnkc)
+
+[* FastLED Basics Part 4](https://www.youtube.com/watch?v=2owTxbrmY-s&t=61s)
+
+[* FastLED Basics Part 5](https://www.youtube.com/watch?v=fRXJQVdwrog&t=292s)
+
+[* FastLED Basics Part 6](https://www.youtube.com/watch?v=7Dhh0IMSI4Q&t=73s)
+
+
