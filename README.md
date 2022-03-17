@@ -200,9 +200,9 @@ The FastLED library will be a big help to you. Bookmark this site.
 
 [* FastLED Library Home](https://fastled.io/)
 
-Scott Marley has an EXCELLENT YouTube channel filled with tutorials on the FastLED library and some very cool projects. You should take the time to watch these vids from the series, FastLED Basics". Each are shorter than twnety minutes in length.
+   -[* FastLED Color Names](http://fastled.io/docs/3.1/struct_c_r_g_b.html)
 
--[* FastLED Color Names](http://fastled.io/docs/3.1/struct_c_r_g_b.html)
+Scott Marley has an EXCELLENT YouTube channel filled with tutorials on the FastLED library and some very cool projects. You should take the time to watch these vids from the series, FastLED Basics". Each are shorter than twnety minutes in length.
 
 [* FastLED Basics Part 1](https://www.youtube.com/watch?v=4Ut4UK7612M&t=80s)
 
