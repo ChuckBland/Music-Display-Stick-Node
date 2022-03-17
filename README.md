@@ -9,8 +9,7 @@ It is ESP32 based and uses the [ESP-NOW Protocol](https://www.espressif.com/en/p
 1. Anything goes with light and size
 2. NO ADDED SOUND
 3. Provide your own DC power source
-4. You will need to provide the MAC address of your node. The sample software reports this to the Serial Monitor at 115,200 bps.
-5. Software Requirements
+4. Software Requirements
    - Packet Version
      - Your node should only respond to version 1 packets
    - Pattern Numbers (0 - 255 sent by TX)
@@ -31,7 +30,7 @@ It is ESP32 based and uses the [ESP-NOW Protocol](https://www.espressif.com/en/p
      - 1 Average Channel
      - 0 to 100 %
      - Up to you to use the values with the numbers of lights you have.
-6. Hardware Requirements
+5. Hardware Requirements
    - Compatible with Prof. Bland’s TX system
    - Test System available in SPL (20-111)
    - It does not matter what micro-controller or language you use, but…
@@ -202,6 +201,7 @@ The FastLED library will be a big help to you. Bookmark this site.
 [* FastLED Library Home](https://fastled.io/)
 
 Scott Marley has an EXCELLENT YouTube channel filled with tutorials on the FastLED library and some very cool projects. You should take the time to watch these vids from the series, FastLED Basics". Each are shorter than twnety minutes in length.
+-[* FastLED Color Names](http://fastled.io/docs/3.1/struct_c_r_g_b.html)
 
 [* FastLED Basics Part 1](https://www.youtube.com/watch?v=4Ut4UK7612M&t=80s)
 
