@@ -80,7 +80,6 @@ The comments identify the critical constants and variables. You will probably ad
 
 The main C source starts with the required library includes. The function OnDataRecv is a callback function used by ESP-NOW when data has been received. Since NewData is changed here, it must be declared as volatile.
 
-Setup()does you a favor by printing the MAC address to the Serial Monitor. The MAC address must be added to the Music Info Transmit node in order for your node to be sent data. The rest of the initialization code sets-up ESP-NOW and FastLED.
 ```
 #include <esp_now.h>
 #include <WiFi.h>
@@ -104,9 +103,6 @@ void setup()
     //print the WiFi MAC address
     Serial.print(F("\r\n\nThis node's WiFi MAC Address is "));
     Serial.print(WiFi.macAddress());
-    Serial.println(F(".\r\nYou will need to enter this information in the"));
-    Serial.println(F("Head Node program array called 'memberESPs'."));
-    Serial.println(F("\nMake sure to adjust the constant NUM_RECEIVERS."));
 
     // Init ESP-NOW
     if (esp_now_init() != ESP_OK)
